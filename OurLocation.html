@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)http://learn.shayhowe.com/practice/working-with-typography/index.html -->
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Restaurant</title>
+    <link rel="stylesheet" href="main.css">
+   
+  </head>
+
+  <body>
+
+  <style type="text/css" >
+    <link rel="stylesheet" href="main.css">
+  </style>
+  
+    <!-- 1. Header:  logo, name, pabaddress  -->
+
+<header >
+  <ul>
+      <li> <img  src="Logo.png" alt="This is restarurant" width="120" height="100"></li>
+      <li> <div class="logo">Queenston's Grill'N Pub</div></li>
+      <li> <div class="tagline">216 Queenston Street, St. Catharines, ON L2P 2W8</div></li> 
+                     
+  </ul> 
+    
+      <nav class="primary-nav">
+        <a href="index.html">Home</a>
+         <a href="OurMenu.html">Menu</a>
+         <a href="OurDrinks.html">Drinks</a> 
+         <a href="OurInterior.html">Interior</a>
+         <a href="OurCustomers.html">Custormers</a> 
+         <a href="OurLocation.html">Location</a>               
+      </nav>  
+</header>
+   <!-- Map  -->
+
+    
+  <section class="location">  
+
+<div id="map-canvas"  style="width:1200px;height:600px;background:gray"></div>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script>
+function initialize() {
+    var myLatlng = new google.maps.LatLng(43.161312,  -79.224650);
+
+    var mapOptions = {
+        zoom: 17,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+     //=====Initialise Default Marker    
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: 'marker'
+     //=====You can even customize the icons here
+    });
+
+     //=====Initialise InfoWindow
+    var infowindow = new google.maps.InfoWindow({
+      content: "<B>Skyway Dr</B>"
+  });
+
+   //=====Eventlistener for InfoWindow
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+</section>
+ 
+ 
+    <!-- 7. Footer -->
+
+    <footer class="primary-footer container group">
+
+      <small>©  VG consulting</small>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+         <a href="OurMenu.html">Menu</a>
+         <a href="OurDrinks.html">Drinks</a> 
+         <a href="OurInterior.html">Interior</a>
+         <a href="OurCustomers.html">Custormers</a> 
+         <a href="OurLocation.html">Location</a>       
+      </nav>  
+      </nav>
+
+    </footer>
+
+  
+</body></html>
